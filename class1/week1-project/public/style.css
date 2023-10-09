@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+}
+
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    height: 100px;
+    background-color: #21222A;
+    align-items: center;
+}
+
+.nav-container-left {
+    display: flex;
+    align-items: center;
+    color: #61DAFB
+}
+
+
+
+.nav-container-left > img {
+    width: 60px;
+    margin-right: 10px;
+}
+
+.nav-container-left > h3 {
+    font-weight: 700;
+    font-size: 22px;
+}
+.nav-container-right > h3 {
+    color: #DEEBF8;
+    margin-right: 10px;
+    font-weight: 600;
+}
