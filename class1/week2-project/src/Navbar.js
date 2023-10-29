@@ -1,6 +1,6 @@
 import React from "react"
-import AirbnbLogo from "./images/airbnb-logo.png"
 
+const AirbnbLogo = "./images/airbnb-logo.png"
 export default function Navbar() {
     return (
         <nav>

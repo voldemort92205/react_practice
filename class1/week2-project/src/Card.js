@@ -1,22 +1,21 @@
 import React from "react"
-import KatieZaferes from "./images/katie-zaferes.png"
-import starIcon from "./images/star.png"
 
-export default function Card() {
+const figPathPrefix = "./images/"
+const starIconPath = "./images/star.png"
+export default function Card(props) {
+    const imgPath = figPathPrefix + props.img
+
     return (
-        <div className="card-gallery">
-            <div className="card-single">
-                <img src={KatieZaferes} alt="Katie Zaferes" className="card-photo" />
-                <div className="card-text-section">
-                    <p className="card-text">
-                        <img src={starIcon} alt="star-icon" className="card-star-icon" />    
-                        5.0 <span className="light-text">(6)•USA</span>
-                    </p>
-                    <p className="card-text">Life lessons with Katie Zaferes</p>
-                    <p className="card-text"><span className="bold-text">From $136</span> / person</p>
-                </div>
+        <div className="card-single">
+            <img src={imgPath} alt="Katie Zaferes" className="card-photo" />
+            <div className="card-text-section">
+                <p className="card-text">
+                    <img src={starIconPath} alt="star-icon" className="card-star-icon" />
+                    {props.rating} <span className="light-text">({props.reviewCount})•{props.country}</span>
+                </p>
+                <p className="card-text">{props.title}</p>
+                <p className="card-text"><span className="bold-text">From ${props.price}</span> / person</p>
             </div>
-            
         </div>
     )
 }
