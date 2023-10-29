@@ -7,6 +7,13 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.light-text{
+  color: gray;
+}
+.bold-text {
+  font-weight: bold;
+}
+
 nav {
   height: 70px;
   display: flex;
@@ -35,4 +42,33 @@ nav {
 
 .hero-text {
   margin-top: 0;
+}
+
+
+/* card */
+.card-gallery {
+  margin: 20px 10px;
+  font-size: 14px;
+}
+.card-single {
+  padding: 10px 20px;
+  width: 250px;
+
+  display: flex;
+  flex-direction: column;
+}
+.card-photo {
+  border-radius: 15px;
+  width: 100%;
+}
+.card-text-section {
+  margin-top: 10px;
+}
+.card-text {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.card-star-icon {
+  width: 15px;
+  height: 15px;
 }
