@@ -49,6 +49,11 @@ nav {
 .card-gallery {
   margin: 20px 10px;
   font-size: 14px;
+
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
 }
 .card-single {
   padding: 10px 20px;
