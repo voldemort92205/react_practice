@@ -60,6 +60,7 @@ nav {
   width: 250px;
 
   display: flex;
+  flex: 0 0 auto;
   flex-direction: column;
 
   position: relative;

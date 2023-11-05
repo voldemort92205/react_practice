@@ -3,11 +3,12 @@ import React from "react"
 const figPathPrefix = "./images/"
 const starIconPath = "./images/star.png"
 export default function Card(props) {
-    const imgPath = figPathPrefix + props.img
+    const {item} = props
+    const imgPath = figPathPrefix + item.coverImg
     let badgeText;
-    if (props.openSpots === 0) {
+    if (item.openSpots === 0) {
         badgeText = "SOLD OUT"
-    } else if (props.location === "Online") {
+    } else if (item.location === "Online") {
         badgeText = "ONLINE"
     }
     return (
@@ -17,10 +18,10 @@ export default function Card(props) {
             <div className="card-text-section">
                 <p className="card-text">
                     <img src={starIconPath} alt="star-icon" className="card-star-icon" />
-                    {props.rating} <span className="light-text">({props.reviewCount})•{props.location}</span>
+                    {item.stats.rating} <span className="light-text">({item.stats.reviewCount})•{item.location}</span>
                 </p>
-                <p className="card-text">{props.title}</p>
-                <p className="card-text"><span className="bold-text">From ${props.price}</span> / person</p>
+                <p className="card-text">{item.title}</p>
+                <p className="card-text"><span className="bold-text">From ${item.price}</span> / person</p>
             </div>
         </div>
     )
