@@ -61,6 +61,8 @@ nav {
 
   display: flex;
   flex-direction: column;
+
+  position: relative;
 }
 .card-photo {
   border-radius: 15px;
@@ -76,4 +78,13 @@ nav {
 .card-star-icon {
   width: 15px;
   height: 15px;
+}
+.card-openSpots {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  background-color: white;
+  padding: 5px 7px;
+  border-radius: 2px;
+  font-weight: bold;
 }
