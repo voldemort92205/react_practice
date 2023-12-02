@@ -20,19 +20,31 @@ export default function Meme() {
         }))
     }
 
+    function handleMemeText(event) {
+        setMeme(prev => ({
+            ...prev,
+            [event.target.name]: event.target.value
+        }))
+    }
 
     return (
         <div>
             <div className="form-container">
                 <input
                     type="text"
-                    placeholder="left text"
+                    placeholder="Top text"
                     className="form-input"
+                    name="topText"
+                    value={meme.topText}
+                    onChange={handleMemeText}
                 />
                 <input
                     type="text"
-                    placeholder="right text"
+                    placeholder="Bottom text"
                     className="form-input"
+                    name="bottomText"
+                    value={meme.bottomText}
+                    onChange={handleMemeText}
                 />
 
                 <button
@@ -42,10 +54,12 @@ export default function Meme() {
                     Get a new meme image 🖼
                 </button>
             </div>
-            <img
-                className="meme-image"
-                src={meme.randomImage}
-            />
+            <div className="meme">
+                <img className="meme-image" src={meme.randomImage} />
+                <h2 className="meme-text meme-top">{meme.topText}</h2>
+                <h2 className="meme-text meme-bottom">{meme.bottomText}</h2>
+                <h2></h2>
+            </div>
         </div>
     )
 }
