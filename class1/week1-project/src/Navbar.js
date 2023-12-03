@@ -8,7 +8,7 @@ export default function Navbar(props) {
                 <img src="./images/react-icon-small.png" alt="react-icon-logo" />
                 <h3>ReactFacts</h3>
             </div>
-            <div className="nav-container-right">
+            <div className="nav-container-title">
                 <h3>React Course - Project 1</h3>
             </div>
 
