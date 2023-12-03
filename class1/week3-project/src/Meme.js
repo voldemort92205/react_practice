@@ -22,6 +22,10 @@ export default function Meme() {
         fetch("https://api.imgflip.com/get_memes")
             .then((res) => res.json())
             .then((data) => setAllMemeImages(data.data.memes))
+
+        return () => {
+            // for cleanup function
+        }
     }, [])
 
     function handleMemeText(event) {
