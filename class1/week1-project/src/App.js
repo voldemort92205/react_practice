@@ -6,8 +6,8 @@ import Navbar from "./Navbar"
 export default function App () {
     return (
         <div className="container">
-            <Navbar />
-            <Main />
+            <Navbar darkMode={true}/>
+            <Main darkMode={true} />
         </div>
     )
 }
