@@ -4,7 +4,7 @@ import Editor from "./Editor"
 import Split from "react-split"
 import {nanoid} from "nanoid"
 import 'react-mde/lib/styles/css/react-mde-all.css';
-import { onSnapshot } from "firebase/firestore"
+import { onSnapshot, addDoc } from "firebase/firestore"
 import { notesCollection } from "./firebase"
 
 export default function App() {
@@ -28,13 +28,12 @@ export default function App() {
         return unsubscribe
     }, [])
 
-    function createNewNote() {
+    async function createNewNote() {
         const newNote = {
-            id: nanoid(),
             body: "# Type your markdown note's title here"
         }
-        setNotes(prevNotes => [newNote, ...prevNotes])
-        setCurrentNoteId(newNote.id)
+        const newNoteRef = await addDoc(notesCollection, newNote);
+        setCurrentNoteId(newNoteRef.id);
     }
 
     function updateNote(text) {
