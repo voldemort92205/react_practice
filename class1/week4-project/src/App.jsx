@@ -4,8 +4,8 @@ import Editor from "./Editor"
 import Split from "react-split"
 import {nanoid} from "nanoid"
 import 'react-mde/lib/styles/css/react-mde-all.css';
-import { onSnapshot, addDoc } from "firebase/firestore"
-import { notesCollection } from "./firebase"
+import { onSnapshot, addDoc, doc, deleteDoc } from "firebase/firestore"
+import { notesCollection, db } from "./firebase"
 
 export default function App() {
     const [notes, setNotes] = React.useState([])
@@ -51,9 +51,9 @@ export default function App() {
         })
     }
 
-    function deleteNote(event, noteId) {
-        event.stopPropagation()
-        setNotes(oldNotes => oldNotes.filter(note => note.id !== noteId))
+    async function deleteNote(noteId) {
+        const docRef = doc(db, "notes", noteId.id);
+        await deleteDoc(docRef);
     }
 
     console.log(currentNoteId, notes.length)
