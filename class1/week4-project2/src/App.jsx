@@ -40,10 +40,12 @@ export default function App() {
   }
 
   function holdDice(id) {
-    setDice (oldDices => oldDices.map(item => ({
-      ...item,
-      isHeld: (item.id === id) ? !item.isHeld : item.isHeld
-    })))
+    if (!tenzies) {
+      setDice (oldDices => oldDices.map(item => ({
+        ...item,
+        isHeld: (item.id === id) ? !item.isHeld : item.isHeld
+      })))
+    }
   }
 
   React.useEffect(() => {
