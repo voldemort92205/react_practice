@@ -8,22 +8,15 @@ export default function App() {
         newDice.push(Math.ceil(Math.random() * 6))
     }
     return newDice
-}
-console.log(allNewDice())
+  }
+
+  const [diceValues, setDiceValues] = React.useState(() => allNewDice())
+  const dieElements = diceValues.map((value, index) => <Die key={index} value={value} />)
 
   return (
     <main>
       <div className="die-container">
-        <Die value={6}/>
-        <Die value={6}/>
-        <Die value={6}/>
-        <Die value={6}/>
-        <Die value={6}/>
-        <Die value={6}/>
-        <Die value={6}/>
-        <Die value={6}/>
-        <Die value={6}/>
-        <Die value={6}/>
+        {dieElements}
       </div>
     </main>
   )
