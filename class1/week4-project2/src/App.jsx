@@ -41,7 +41,14 @@ export default function App() {
   }
 
   React.useEffect(() => {
-    console.log("Dice state changed")
+    const isWin = dice.every((item) => (
+      item.isHeld && item.value === dice[0].value
+    ))
+
+    if (isWin) {
+      setTenzies(true)
+      console.log ("You won!")
+    }
   }, [dice])
 
   return (
