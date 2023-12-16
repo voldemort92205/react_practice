@@ -29,9 +29,14 @@ export default function App() {
             holdDice={() => holdDice (item.id)} />)
 
   function rollDice() {
-    setDice (oldDice => oldDice.map((item => {
-      return item.isHeld ? item: generateNewDie()
-    })))
+    if (tenzies) {
+      setDice(allNewDice())
+      setTenzies(false)
+    } else {
+      setDice (oldDice => oldDice.map((item => {
+        return item.isHeld ? item: generateNewDie()
+      })))
+    }
   }
 
   function holdDice(id) {
@@ -48,7 +53,6 @@ export default function App() {
 
     if (isWin) {
       setTenzies(true)
-      console.log ("You won!")
     }
   }, [dice])
 
