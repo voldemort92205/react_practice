@@ -19,7 +19,8 @@ export default function App() {
   const dieElements = dice.map((item) => <Die
             key={item.id}
             value={item.value}
-            isHeld={item.isHeld}/>)
+            isHeld={item.isHeld}
+            holdDice={() => holdDice (item.id)} />)
 
   function rollDice() {
     const newDices = allNewDice().map((item, index) => ({
@@ -27,6 +28,10 @@ export default function App() {
       isHeld: dice[index].isHeld
     }))
     setDice (newDices)
+  }
+
+  function holdDice(id) {
+    console.log(id + " triggerred!!")
   }
 
   return (
