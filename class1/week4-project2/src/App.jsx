@@ -1,6 +1,7 @@
 import React from "react"
 import Die from "./Die"
 import {nanoid} from "nanoid"
+import Confetti from 'react-confetti'
 
 export default function App() {
   function generateNewDie() {
@@ -53,6 +54,7 @@ export default function App() {
 
   return (
     <main>
+      {tenzies && <Confetti />}
       <h1 className="title">Tenzies</h1>
       <p className="instructions">
         Roll until all dice are the same.
@@ -65,7 +67,7 @@ export default function App() {
       <button
           className="die-reroller"
           onClick={rollDice}>
-        Roll
+        {tenzies ? "New Game" : "Roll"}
       </button>
     </main>
   )
