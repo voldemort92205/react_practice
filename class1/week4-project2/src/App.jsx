@@ -19,6 +19,8 @@ export default function App() {
   }
 
   const [dice, setDice] = React.useState(() => allNewDice())
+  const [tenzies, setTenzies] = React.useState(false)
+
   const dieElements = dice.map((item) => <Die
             key={item.id}
             value={item.value}
@@ -37,6 +39,10 @@ export default function App() {
       isHeld: (item.id === id) ? !item.isHeld : item.isHeld
     })))
   }
+
+  React.useEffect(() => {
+    console.log("Dice state changed")
+  }, [dice])
 
   return (
     <main>
