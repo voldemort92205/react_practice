@@ -13,11 +13,20 @@ export default function App() {
   const [diceValues, setDiceValues] = React.useState(() => allNewDice())
   const dieElements = diceValues.map((value, index) => <Die key={index} value={value} />)
 
+  function rollDice() {
+    setDiceValues (oldValues => allNewDice())
+  }
+
   return (
     <main>
       <div className="die-container">
         {dieElements}
       </div>
+      <button
+          className="die-reroller"
+          onClick={rollDice}>
+        Roll
+      </button>
     </main>
   )
 }
