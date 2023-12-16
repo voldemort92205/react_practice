@@ -25,13 +25,18 @@ export default function App() {
   function rollDice() {
     const newDices = allNewDice().map((item, index) => ({
       ...item,
-      isHeld: dice[index].isHeld
+      isHeld: dice[index].isHeld,
+      value: dice[index].isHeld ? dice[index].value : item.value,
+      id: dice[index].isHeld ? dice[index].id : item.id
     }))
     setDice (newDices)
   }
 
   function holdDice(id) {
-    console.log(id + " triggerred!!")
+    setDice (oldDices => oldDices.map(item => ({
+      ...item,
+      isHeld: (item.id === id) ? !item.isHeld : item.isHeld
+    })))
   }
 
   return (
